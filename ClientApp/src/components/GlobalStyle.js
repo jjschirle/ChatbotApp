@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyling = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 /*
 =============== 
 Variables
@@ -52,12 +52,6 @@ a:hover {
   place-items: center;
   padding: var(--nav-height) 0;
 }
-.sectionCV {
-  min-height: 10vh;
-  display: grid;
-  place-items: center;
-  padding: var(--nav-height) 0;
-}
 .title {
     font-family: "Permanent Marker";
 }
@@ -93,6 +87,34 @@ a:hover {
     color: var(--primary);
   }
 }
+.home{
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   // #d9d9e3
+    .container{
+        background: ${({ theme }) => (theme.name === "light" ? "rgba(217,217,227,.8)" : "#797B7B")};
+        border: 1px ${({ theme }) => (theme.name === "light" ? "solid black" : "solid white")};
+        border-radius: 10px;
+        width: 80%;
+        height: 80%;
+        display: flex;
+        --bs-gutter-x: 0; // Set Bootstrap gutter to 0 to fix spacing */
+        overflow: hidden;
+
+        .sidebar{
+            flex: 1;
+            border-right: 1px solid red;
+            background-color: ${({ theme }) => (theme.name === "light" ? "#797B7B" : "rgba(217,217,227,.8)")};
+
+        }
+        .chat{
+            flex: 2;
+      }
+    }
+  }
+}
 `;
 
-export default GlobalStyling;
+export default GlobalStyle;

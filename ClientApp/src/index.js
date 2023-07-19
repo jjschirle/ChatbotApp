@@ -1,8 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 //import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
 import { AppProvider } from "./AppContext";
+import "bootstrap/dist/css/bootstrap.css";
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';

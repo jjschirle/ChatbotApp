@@ -87,8 +87,8 @@ export default function NavBar() {
                         <img
                             alt="React Logo"
                             src={Logo}
-                            width="40"
-                            height="40"
+                            width="35"
+                            height="35"
                             className="rounded-circle"
                         />
                     </Navbar.Brand>

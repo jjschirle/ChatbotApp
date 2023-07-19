@@ -20,7 +20,7 @@ const AppRoutes = [
 
 const AppRoutes = {
     routes: [
-        { id: "1R", name: "Chat", route: "/" },
+        { id: "1R", name: "Home", route: "/" },
         { id: "2R", name: "Jokes", route: "/Jokes" },
         { id: "3R", name: "About", route: "/About" },
     ],

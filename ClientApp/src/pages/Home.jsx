@@ -1,7 +1,22 @@
-import React from "react"    
+import React from "react"
+import styled from "styled-components"
+import { Container } from "react-bootstrap"
+// components
+import Sidebar from "../components/Sidebar"
+import Chat from "../components/Chat"
 
-export default function About() {
+
+
+
+export default function Home() {
     return (
-        <h1>Home page </h1>
+        <Container>
+            <div className="home">
+            <div className="container">
+                <Sidebar />
+                <Chat />
+             </div>
+            </div>
+        </Container>
     );
 };

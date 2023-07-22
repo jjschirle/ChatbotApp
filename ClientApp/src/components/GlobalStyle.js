@@ -94,20 +94,22 @@ a:hover {
    justify-content: center;
    // #d9d9e3
     .container{
-        background: ${({ theme }) => (theme.name === "light" ? "rgba(217,217,227,.8)" : "#797B7B")};
+        background: ${({ theme }) => (theme.name === "light" ? "#fff" : "#797B7B")};
         border: 1px ${({ theme }) => (theme.name === "light" ? "solid black" : "solid white")};
         border-radius: 10px;
         width: 80%;
         height: 80%;
-        display: flex;
+        display: flex;        
         --bs-gutter-x: 0; // Set Bootstrap gutter to 0 to fix spacing */
         overflow: hidden;
 
         .sidebar{
             flex: 1;
             border-right: 1px solid red;
-            background-color: ${({ theme }) => (theme.name === "light" ? "#797B7B" : "rgba(217,217,227,.8)")};
+            flexDirection: column;
+            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")}
 
+            .chat
         }
         .chat{
             flex: 2;

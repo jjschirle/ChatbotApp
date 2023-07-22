@@ -6,7 +6,6 @@ import styled from "styled-components";
 import AppRoutes from "../AppRoutes"
 // Icons
 import { Icon } from "@iconify/react";
-// Components
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 import Logo from "../images/artificial-intelligence.svg"

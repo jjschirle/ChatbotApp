@@ -1,5 +1,6 @@
 import React from 'react'
 //import { useState } from 'react';
+import styled from 'styled-components';
 import { useAppContext } from "../AppContext";
 import { Button } from "react-bootstrap";
 // Icons
@@ -8,6 +9,12 @@ import { Icon } from "@iconify/react";
 import ChatTab from "./ChatTab"
 import { name } from "./TestData"
 
+
+const CustomH1 = styled.h1`
+  font-size: 1rem;
+  font-family: var(--bs-font-sans-serif);
+  font-weight: 400;
+`;
 
 export default function Sidebar() {
     const { theme } = useAppContext();
@@ -49,7 +56,7 @@ export default function Sidebar() {
                 onClick={ () => console.log("clicked to sign out")}
             //    onClick={handleSignOutClick} // Attach the event handler for "Sign Out" button click
             >
-                {name} Sign Out <Icon icon="bi:box-arrow-right" />
+                <CustomH1> <Icon icon="bi:box-arrow-right" /> sign out: {name} </CustomH1>
             </Button>
             </div>
     );

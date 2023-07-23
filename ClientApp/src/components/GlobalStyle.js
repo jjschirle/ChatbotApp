@@ -99,21 +99,27 @@ a:hover {
         border-radius: 10px;
         width: 80%;
         height: 80%;
-        display: flex;        
+        flexDirection: column;
         --bs-gutter-x: 0; // Set Bootstrap gutter to 0 to fix spacing */
         overflow: hidden;
+
+        .userChat{
+            width: 100%;
+            display: flex;
+            }
 
         .sidebar{
             flex: 1;
             border-right: 1px solid red;
-            flexDirection: column;
-            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")}
-
-            .chat
+            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")};
         }
-        .chat{
+   
+        .messages{
             flex: 2;
-      }
+        }
+       .userInput {
+            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")};
+        }
     }
   }
 }

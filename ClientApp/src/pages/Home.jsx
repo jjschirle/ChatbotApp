@@ -3,18 +3,16 @@ import React from "react"
 import { Container } from "react-bootstrap"
 // components
 import Sidebar from "../components/Sidebar"
-import Chat from "../components/Chat"
-
-
-
-
+import Messages from "../components/Messages"
+import UserInput from "../components/UserInput"
 export default function Home() {
     return (
-        <Container>
+        <Container fluid>
             <div className="home">
             <div className="container">
                 <Sidebar />
-                <Chat />
+                <Messages />
+                <UserInput />
              </div>
             </div>
         </Container>

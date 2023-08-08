@@ -44,6 +44,7 @@ const FixedNavSpacer = styled.div`
   height: var(--nav-height);
 `;
 
+
 function ThemeToggle() {
     const { theme, toggleTheme, closeExpanded } = useAppContext();
 
@@ -65,12 +66,20 @@ function ThemeToggle() {
     );
 }
 
+// Style active navbar tab
+const NavBarContainer = styled.nav`
+    .active {
+        font-weight: 500;
+        color: ${({ theme }) => (theme === "dark" ? "white" : "black")};
+    }
+`;
+
 export default function NavBar() {
     const { pathname } = useLocation();
     const { theme, isExpanded, closeExpanded, toggleExpanded } = useAppContext();
 
     return (
-        <>
+        <NavBarContainer>
             <FixedNavSpacer />
             <Navbar
                 id="nav"
@@ -121,6 +130,6 @@ export default function NavBar() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </>
+        </NavBarContainer>
     );
 }

@@ -16,6 +16,7 @@ Variables
   --nav-height: 61px;
   --min-footer-height: 11vh;
   --card-height: 29rem;
+  --sidebar-width: 300px;
 }
 /*
 =============== 
@@ -71,9 +72,7 @@ a:hover {
     background-color: var(--primary);
     border-color: var(--primary);
 }
-.active{
-  font-weight: 500;
-}
+
 @media screen and (min-width: 800px) {
   .link-icons {
     font-size: 2.5rem;
@@ -87,41 +86,9 @@ a:hover {
     color: var(--primary);
   }
 }
-.home{
-   height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   // #d9d9e3
-    .container{
-        background: ${({ theme }) => (theme.name === "light" ? "#fff" : "#797B7B")};
-        border: 1px ${({ theme }) => (theme.name === "light" ? "solid black" : "solid white")};
-        border-radius: 10px;
-        width: 80%;
-        height: 80%;
-        flexDirection: column;
-        --bs-gutter-x: 0; // Set Bootstrap gutter to 0 to fix spacing */
-        overflow: hidden;
-
-        .userChat{
-            width: 100%;
-            display: flex;
-            }
-
-        .sidebar{
-            flex: 1;
-            border-right: 1px solid red;
-            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")};
-        }
-   
-        .messages{
-            flex: 2;
-        }
-       .userInput {
-            background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")};
-        }
-    }
-  }
+.sidebar{
+width: var(--sidebar-width);
+}
 }
 `;
 

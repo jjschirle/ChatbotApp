@@ -1,20 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 import {useAppContext} from "../AppContext"
-import { Button, Row, Col, Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 //components
 import { chatData } from "./TestData"
-
-// Create a styled component for the custom button
-const CustomButton = styled(Button)`
-  border: none;
-  padding: 0;
-  width: 100%;
-
-  &:focus {
-    outline: none;
-  }
-`;
 
 // Create a styled component for the custom container
 const CustomContainer = styled(Container)`
@@ -23,31 +12,51 @@ const CustomContainer = styled(Container)`
   width: 100%;
   margin-left: 0;
   margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 `;
 
+// Create a styled component for the custom button
+const CustomButton = styled(Button)`
+  border: none;
+  width: 95%;
+  display: block;
 
-export default function ChatTab() {
+  // adjust chat summary text
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.active {
+    background-color: ${({ theme }) =>
+    theme.name === 'light' ? '#f7f7f8' : '#40414f'};
+    color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+}
+
+ &:hover {
+    background-color: ${({ theme }) =>
+    theme.name === 'light' ? '#f7f7f8' : '#40414f'};
+    color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+}
+`;
+
+export default function ChatTab({ activeChatId, onSelectChat }) {
     const { theme } = useAppContext();
 
-
     return (
-        <div className="userChat">
         <CustomContainer fluid>
-        <Row>
             {chatData.map((chat) => (
-                <Col key={chat.id} xs={12} className="mb-2">
-                    <CustomButton 
-                        size="lg"
-                        variant={theme === "light" ? "outline-dark" : "outline-light"}
-                        onClick={() => console.log("clicked to access chat")}
-                    >
-                        {chat.summary}
-                    </CustomButton >
-                </Col>
+                <CustomButton
+                    key={chat.id}
+                    size="lg"
+                    variant={theme === "light" ? "outline-dark" : "outline-light"}
+                    onClick={() => onSelectChat(chat.id)}
+                    active={chat.id === activeChatId} // Check if the button's chat ID matches activeChatId
+                >
+                    {chat.summary}
+                </CustomButton>
             ))}
-        </Row>
-        </CustomContainer >
-        </div>
-    )
-};
-
+        </CustomContainer>
+    );
+}

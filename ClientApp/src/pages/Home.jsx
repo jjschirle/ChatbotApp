@@ -11,12 +11,13 @@ import UserInput from "../components/UserInput"
 import { chatData } from '../components/TestData'
 
 
+//start iof adding stiff
+
 const CustomContainer = styled(Container)`
   margin: 20px auto;
   width: 100%; 
   height: 100vh;
   position: fixed;
-
 `;
 
 const HomeContainer = styled.div`
@@ -28,24 +29,16 @@ const HomeContainer = styled.div`
   overflow: hidden;
 `;
 
-
 // Colors main content area
 const CustomCol = styled(Col)`
   background-color: ${({ theme }) =>
     theme.name === "light" ? "#fff" : "#40414f"};
-  height: 100%;
   width: calc(100% - var(--sidebar-width));
   padding: 0;
   display flex;
+  glex-direction: column;
   position: relative;
-
 `;
-
-/* can use calc() for spacing - but don't want/need a dynamic layout
-const MessagesSpacing = styled.div`
-    height:calc(100% - 70px);
-`;
-*/
 
 /*using absolute positioning to "stick" the input at the bottom*/
 const UserInputSticky = styled.div`
@@ -57,7 +50,7 @@ const UserInputSticky = styled.div`
 
 
 export default function Home() {
-    const [showNewChat, setShowNewChat] = useState(null); // State to control whether to show NewChat
+    const [showNewChat, setShowNewChat] = useState(true); // State to control whether to show NewChat
     const [selectedChatId, setSelectedChatId] = useState(null); // State for selected chat id
 
     const handleChatSelect = (chatId) => {
@@ -80,7 +73,7 @@ export default function Home() {
                     <UserInputSticky>
                         <UserInput />
                     </UserInputSticky>
-                </CustomCol>
+                    </CustomCol>
             </HomeContainer>
         </CustomContainer>
     );

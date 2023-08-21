@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useAppContext } from "../AppContext";
 import { Button } from "react-bootstrap";
 // Icons
@@ -7,13 +7,6 @@ import { Icon } from "@iconify/react";
 //components
 import ChatTab from "./ChatTab"
 import { name } from "./TestData"
-
-
-const CustomH1 = styled.h1`
-  font-size: 1rem;
-  font-family: var(--bs-font-sans-serif);
-  font-weight: 400;
-`;
 
 const SidebarContainer = styled.div`
   display: flex;
@@ -23,10 +16,31 @@ const SidebarContainer = styled.div`
   align-items: center;
 `;
 
+const CustomH1 = styled.h1`
+  font-size: 1rem;
+  font-family: var(--bs-font-sans-serif);
+  font-weight: 400;
+`;
+
+const SidebarButtonStyles = css`
+  width: 95%;
+
+  &:hover {
+    background-color: ${({ theme }) =>
+        theme.name === 'light' ? '#f7f7f8' : '#40414f'};
+    color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+  }
+`;
+
+const NewChatButton = styled(Button)`
+  ${SidebarButtonStyles}
+  margin-top: 10px;
+`;
+
 const SignOutButton = styled(Button)`
+  ${SidebarButtonStyles}
   position: absolute;
   bottom: 10px;
-  width: 95%;
 `;
 
 export default function Sidebar({ onSelectChat, setShowNewChat }) {
@@ -48,14 +62,13 @@ export default function Sidebar({ onSelectChat, setShowNewChat }) {
 
       return (
     <SidebarContainer>
-      <Button
+       <NewChatButton
         size="lg"
         variant={theme === "light" ? "outline-dark" : "outline-light"}
-        style={{ width: '95%', marginTop: '10px' }}
         onClick={handleNewChatClick}
       >
         <Icon icon="ei:plus" /> New chat
-      </Button>
+       </NewChatButton>
 
        <ChatTab
             activeChatId={activeChatId} // Pass activeChatId prop to ChatTab

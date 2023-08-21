@@ -1,9 +1,15 @@
 import React from "react";
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {useAppContext} from "../AppContext"
 import { Button, Container } from 'react-bootstrap';
 //components
 import { chatData } from "./TestData"
+
+const ButtonStyles = css`
+  background-color: ${({ theme }) =>
+        theme.name === 'light' ? '#f7f7f8' : '#40414f'};
+  color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+`;
 
 // Create a styled component for the custom container
 const CustomContainer = styled(Container)`
@@ -29,15 +35,11 @@ const CustomButton = styled(Button)`
   text-overflow: ellipsis;
 
   &.active {
-    background-color: ${({ theme }) =>
-    theme.name === 'light' ? '#f7f7f8' : '#40414f'};
-    color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+    ${ButtonStyles}
 }
 
  &:hover {
-    background-color: ${({ theme }) =>
-    theme.name === 'light' ? '#f7f7f8' : '#40414f'};
-    color: ${({ theme }) => (theme.name === 'light' ? 'black' : 'white')};
+    ${ButtonStyles}
 }
 `;
 

@@ -14,8 +14,6 @@ Variables
   --border: 1px solid #61DBFB;
   --transition: all 0.3s linear;
   --nav-height: 61px;
-  --min-footer-height: 11vh;
-  --card-height: 29rem;
   --sidebar-width: 300px;
 }
 /*
@@ -52,9 +50,6 @@ a:hover {
   display: grid;
   place-items: center;
   padding: var(--nav-height) 0;
-}
-.title {
-    font-family: "Permanent Marker";
 }
 .card {
   height: var(--card-height);

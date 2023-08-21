@@ -6,8 +6,8 @@ const InputContainer = styled.div`
     display: flex;
     align-items: center;
     background-color: ${({ theme }) => (theme.name === "light" ? "#A6ACAF" : "#212121")};
-    height: 50px;
-    width: 95%;
+    min-height: 54px;
+    max-width: 80%;
     max-height: 200px;
     margin: auto;
     border-radius: 10px;
@@ -20,8 +20,11 @@ const InputField = styled.textarea`
     resize: none; /* Allow vertical resizing */
     border: none;
     outline: none;
+    font-size: 20px;
+    padding: 0 20px;
     background-color: transparent;
     color: ${({ theme }) => (theme.name === "light" ? "black" : "white")};
+
 
    &::placeholder {
         color: ${({ theme }) => (theme.name === "light" ? "black" : "white")};
@@ -57,7 +60,7 @@ export default function UserInput() {
         if (textareaRef.current) {
             textareaRef.current.style.height = 'auto';
             textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-
+            
             if (inputContainerRef.current) {
                 inputContainerRef.current.style.height = `${textareaRef.current.scrollHeight + 20}px`; // Adding padding
             }
